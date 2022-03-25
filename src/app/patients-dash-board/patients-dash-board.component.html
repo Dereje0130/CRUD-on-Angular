@@ -20,13 +20,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>John</td>
-            <td>Alex</td>
-            <td>1132453340</td>
-            <td>2405465734</td>
-            <td>fdgretry2@gmail.com</td>
+        <tr  *ngFor="let row of patientsData">
+             <td>{{row.id}}</td>
+             <td>{{row.firstName}}</td>
+             <td>{{row.lastName}}</td>
+             <td>{{row.medicalrecordNumber}}</td>
+             <td>{{row.phoneNumber}}</td>
+             <td>{{row.emailAddress}}</td>
 
             <td>
                 <button class="btn btn-info">Edit</button>

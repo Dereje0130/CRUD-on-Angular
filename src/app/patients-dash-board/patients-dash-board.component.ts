@@ -14,6 +14,7 @@ export class PatientsDashBoardComponent implements  OnInit{
   
   formValue!: FormGroup
   patientModelObj : patientsModel = new patientsModel();
+  patientsData !: any;
 
    
   constructor(private formbuilder: FormBuilder, private Api : ApiService ) { }
@@ -25,7 +26,8 @@ export class PatientsDashBoardComponent implements  OnInit{
       medicalrecordNumber : [''],
       phoneNumber : [''],
       emailAddress : ['']
-    })   
+    }) 
+    this.getAllPatients();  
     }
     postPatientInformation(){
       this.patientModelObj.firstName = this.formValue.value.firstName;
@@ -37,13 +39,24 @@ export class PatientsDashBoardComponent implements  OnInit{
     this.Api.postPatients(this.patientModelObj).subscribe(res=>{
       console.log(res);
       alert("Patient Added Successfully")
+      let ref = document.getElementById('cancel')
+      ref?.click();
+      this.formValue.reset();
     },
     err=>{
       alert("Something went wrong")
     }) 
 
     }
-  }
+    getAllPatients(){
+      this.Api.getPatients()
+      .subscribe(res=>{
+        this.patientsData = res;
+
+      })
+    }
+    }
+  
   
     
      

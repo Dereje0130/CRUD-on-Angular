@@ -55,7 +55,39 @@ export class PatientsDashBoardComponent implements  OnInit{
 
       })
     }
+    deletePatients(row:any){
+      this.Api.deletePatients(row.id)
+      .subscribe(res=>{
+        alert("Patient Deleted");
+        this.getAllPatients();
+      })
     }
+    onEdit(row:any){
+      this.patientModelObj.id;
+       
+      this.formValue.controls['firstName'].setValue(row.firstName);
+      this.formValue.controls['lastName'].setValue(row.lastName);
+      this.formValue.controls['medicalrecordNumber'].setValue(row.medicalrecordNumber);
+      this.formValue.controls['phoneNumber'].setValue(row.phoneNumber);
+      this.formValue.controls['emailAddress'].setValue(row.emailAddress);
+    }
+    updatePatientInformation(){
+      this.patientModelObj.firstName = this.formValue.value.firstName;
+      this.patientModelObj.lastName = this.formValue.value.lastName;
+      this.patientModelObj.medicalrecordNumber = this.formValue.value.medicalrecordNumber;
+      this.patientModelObj.phoneNumber = this.formValue.value.phoneNumber;
+      this.patientModelObj.emailAddress = this.formValue.value.emailAddress;
+        
+      this.Api.putPatients(this.patientModelObj,this.patientModelObj.id)
+      .subscribe(res=>{
+        alert("Updated Successfully")
+        let ref = document.getElementById('cancel')
+        ref?.click();
+        this.formValue.reset();
+      })
+    }
+    }
+    
   
   
     

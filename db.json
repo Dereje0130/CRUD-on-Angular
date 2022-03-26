@@ -1,5 +1,14 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "fdgfd",
+      "lastName": "hfgtr",
+      "medicalrecordNumber": "1",
+      "phoneNumber": "1",
+      "emailAddress": "dfer@gmail.com"
+    }
+  ],
   "comments": [],
   "profile": {
     "name": "typicode"

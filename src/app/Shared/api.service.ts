@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   postPatients(data : any){
-    return this.http.post<any>(" http://localhost:3000/posts",data).pipe(
+    return this.http.post<any>("  https://backend-111.herokuapp.com/posts",data).pipe(
       map(
         (
           res => {
@@ -19,7 +19,7 @@ export class ApiService {
      
   }
   getPatients(){
-    return this.http.get<any>(" http://localhost:3000/posts").pipe(
+    return this.http.get<any>("  https://backend-111.herokuapp.com/posts").pipe(
       map(
         (
           res => {
@@ -28,7 +28,7 @@ export class ApiService {
      
   }
   putPatients(data : any,id:number){
-    return this.http.put<any>(" http://localhost:3000/posts"+id,data).pipe(
+    return this.http.put<any>("  https://backend-111.herokuapp.com/posts"+id,data).pipe(
       map(
         (
           res => {
@@ -37,7 +37,7 @@ export class ApiService {
      
   }
   deletePatients(id:number){
-    return this.http.delete<any>(" http://localhost:3000/posts"+id).pipe(
+    return this.http.delete<any>("  https://backend-111.herokuapp.com/posts"+id).pipe(
       map(
         (
           res => {

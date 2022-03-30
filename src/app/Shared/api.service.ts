@@ -10,8 +10,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   postPatients(data : any){
-    return this.http.post<any>(" https://json-server12345.herokuapp.com/posts
-",data).pipe(
+    return this.http.post<any>("https://json-server12345.herokuapp.com/posts",data).pipe(
       map(
         (
           res => {
@@ -20,8 +19,7 @@ export class ApiService {
      
   }
   getPatients(){
-    return this.http.get<any>(" https://json-server12345.herokuapp.com/posts
-").pipe(
+    return this.http.get<any>("https://json-server12345.herokuapp.com/posts").pipe(
       map(
         (
           res => {
@@ -30,8 +28,7 @@ export class ApiService {
      
   }
   putPatients(data : any,id:number){
-    return this.http.put<any>(" https://json-server12345.herokuapp.com/posts
-"+id,data).pipe(
+    return this.http.put<any>("https://json-server12345.herokuapp.com/posts"+id,data).pipe(
       map(
         (
           res => {
@@ -40,8 +37,7 @@ export class ApiService {
      
   }
   deletePatients(id:number){
-    return this.http.delete<any>(" https://json-server12345.herokuapp.com/posts
-"+id).pipe(
+    return this.http.delete<any>("https://json-server12345.herokuapp.com/posts"+id).pipe(
       map(
         (
           res => {
